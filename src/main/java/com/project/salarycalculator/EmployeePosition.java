@@ -6,14 +6,13 @@ public enum EmployeePosition {
   TESTER("TESTADOR"),
   MANAGER("GERENTE");
 
-  private final String name;
+  private final String title;
 
-  private EmployeePosition(String name) {
-    this.name = name;
+  private EmployeePosition(String title) {
+    this.title = title;
   }
 
-  @Override
-  public String toString() {
-    return this.name;
+  public String getTitle() {
+    return this.title;
   }
 }
