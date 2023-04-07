@@ -35,4 +35,12 @@ public class EmployeeTest {
     assertEquals(EmployeePosition.DEVELOPER, employee.getPosition());
     assertEquals("DESENVOLVEDOR", employee.getPosition().toString());
   }
+
+  @Test
+  public void testEmployeeShouldBeADBA() {
+    Employee employee = new Employee(employeeName, employeeEmail, employeeBaseSalaryInCents, EmployeePosition.DBA);
+
+    assertEquals(EmployeePosition.DBA, employee.getPosition());
+    assertEquals("DBA", employee.getPosition().toString());
+  }
 }
