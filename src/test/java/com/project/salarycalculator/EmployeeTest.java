@@ -43,4 +43,12 @@ public class EmployeeTest {
     assertEquals(EmployeePosition.DBA, employee.getPosition());
     assertEquals("DBA", employee.getPosition().toString());
   }
+
+  @Test
+  public void testEmployeeShouldBeATester() {
+    Employee employee = new Employee(employeeName, employeeEmail, employeeBaseSalaryInCents, EmployeePosition.TESTER);
+
+    assertEquals(EmployeePosition.TESTER, employee.getPosition());
+    assertEquals("TESTADOR", employee.getPosition().toString());
+  }
 }
