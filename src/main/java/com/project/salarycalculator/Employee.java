@@ -4,12 +4,12 @@ public class Employee {
 
   private String name;
   private String email;
-  private int salaryInCents;
+  private int baseSalaryInCents;
 
-  public Employee(String name, String email, int salaryInCents) {
+  public Employee(String name, String email, int baseSalaryInCents) {
     this.name = name;
     this.email = email;
-    this.salaryInCents = salaryInCents;
+    this.baseSalaryInCents = baseSalaryInCents;
   }
 
   public String getName() {
@@ -20,7 +20,7 @@ public class Employee {
     return email;
   }
 
-  public int getSalaryInCents() {
-    return this.salaryInCents;
+  public int getBaseSalaryInCents() {
+    return this.baseSalaryInCents;
   }
 }

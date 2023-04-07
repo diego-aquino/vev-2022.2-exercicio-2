@@ -6,11 +6,15 @@ import org.junit.Test;
 
 public class EmployeeTest {
 
+  private String employeeName = "Name";
+  private String employeeEmail = "email@email.com";
+  private int employeeBaseSalaryInCents = 300000;
+
   @Test
   public void testEmployeeShouldInitializeCorrectly() {
-    Employee employee = new Employee("Name", "email@email.com", 300000);
-    assertEquals("Name", employee.getName());
-    assertEquals("email@email.com", employee.getEmail());
-    assertEquals(300000, employee.getSalaryInCents());
+    Employee employee = new Employee(employeeName, employeeEmail, employeeBaseSalaryInCents);
+    assertEquals(employeeName, employee.getName());
+    assertEquals(employeeEmail, employee.getEmail());
+    assertEquals(employeeBaseSalaryInCents, employee.getBaseSalaryInCents());
   }
 }
