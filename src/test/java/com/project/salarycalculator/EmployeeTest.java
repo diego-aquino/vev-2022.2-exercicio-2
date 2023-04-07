@@ -8,8 +8,9 @@ public class EmployeeTest {
 
   @Test
   public void testEmployeeShouldInitializeCorrectly() {
-    Employee employee = new Employee("Name", "email@email.com");
+    Employee employee = new Employee("Name", "email@email.com", 300000);
     assertEquals("Name", employee.getName());
     assertEquals("email@email.com", employee.getEmail());
+    assertEquals(300000, employee.getSalaryInCents());
   }
 }
