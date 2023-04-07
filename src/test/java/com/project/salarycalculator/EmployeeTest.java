@@ -21,6 +21,17 @@ public class EmployeeTest {
     assertEquals(employeeName, employee.getName());
     assertEquals(employeeEmail, employee.getEmail());
     assertEquals(employeeBaseSalaryInCents, employee.getBaseSalaryInCents());
+  }
+
+  @Test
+  public void testEmployeeShouldBeADeveloper() {
+    Employee employee = new Employee(
+      employeeName,
+      employeeEmail,
+      employeeBaseSalaryInCents,
+      EmployeePosition.DEVELOPER
+    );
+
     assertEquals(EmployeePosition.DEVELOPER, employee.getPosition());
     assertEquals("DESENVOLVEDOR", employee.getPosition().toString());
   }
