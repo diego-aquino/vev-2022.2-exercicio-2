@@ -5,11 +5,13 @@ public class Employee {
   private String name;
   private String email;
   private int baseSalaryInCents;
+  private EmployeePosition position;
 
-  public Employee(String name, String email, int baseSalaryInCents) {
+  public Employee(String name, String email, int baseSalaryInCents, EmployeePosition position) {
     this.name = name;
     this.email = email;
     this.baseSalaryInCents = baseSalaryInCents;
+    this.position = position;
   }
 
   public String getName() {
@@ -22,5 +24,9 @@ public class Employee {
 
   public int getBaseSalaryInCents() {
     return this.baseSalaryInCents;
+  }
+
+  public EmployeePosition getPosition() {
+    return position;
   }
 }
