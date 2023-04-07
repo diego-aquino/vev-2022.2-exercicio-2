@@ -12,9 +12,16 @@ public class EmployeeTest {
 
   @Test
   public void testEmployeeShouldInitializeCorrectly() {
-    Employee employee = new Employee(employeeName, employeeEmail, employeeBaseSalaryInCents);
+    Employee employee = new Employee(
+      employeeName,
+      employeeEmail,
+      employeeBaseSalaryInCents,
+      EmployeePosition.DEVELOPER
+    );
     assertEquals(employeeName, employee.getName());
     assertEquals(employeeEmail, employee.getEmail());
     assertEquals(employeeBaseSalaryInCents, employee.getBaseSalaryInCents());
+    assertEquals(EmployeePosition.DEVELOPER, employee.getPosition());
+    assertEquals("DESENVOLVEDOR", employee.getPosition().toString());
   }
 }
