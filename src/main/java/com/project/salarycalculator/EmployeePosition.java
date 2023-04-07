@@ -2,7 +2,8 @@ package com.project.salarycalculator;
 
 public enum EmployeePosition {
   DEVELOPER("DESENVOLVEDOR"),
-  DBA("DBA");
+  DBA("DBA"),
+  TESTER("TESTADOR");
 
   private final String name;
 
