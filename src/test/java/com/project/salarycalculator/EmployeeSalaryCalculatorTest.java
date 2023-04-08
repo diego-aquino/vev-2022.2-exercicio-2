@@ -55,21 +55,21 @@ public class EmployeeSalaryCalculatorTest {
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForTestersEmployeesBelowThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForTesterEmployeesBelowThreshold() {
     int salaryInCentsBelowThreshold = 199999;
     double expectedDiscount = 0.15;
     testEmployeeSalary(EmployeePosition.TESTER, salaryInCentsBelowThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForTestersEmployeesAtThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForTesterEmployeesAtThreshold() {
     int salaryInCentsAtThreshold = 200000;
     double expectedDiscount = 0.25;
     testEmployeeSalary(EmployeePosition.TESTER, salaryInCentsAtThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForTestersEmployeesAboveThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForTesterEmployeesAboveThreshold() {
     int salaryInCentsAboveThreshold = 200001;
     double expectedDiscount = 0.25;
     testEmployeeSalary(EmployeePosition.TESTER, salaryInCentsAboveThreshold, expectedDiscount);
