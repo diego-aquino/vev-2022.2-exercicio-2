@@ -2,8 +2,10 @@ package com.project.salarycalculator;
 
 public class EmployeeSalaryCalculator {
 
+  private EmployeeSalaryCalculatorFactory calculatorFactory = new EmployeeSalaryCalculatorFactory();
+
   public int calculateSalaryInCents(Employee employee) {
-    int baseSalaryInCents = employee.getBaseSalaryInCents();
-    return (int) Math.floor(baseSalaryInCents * 0.9);
+    DeveloperEmployeeSalaryCalculator calculator = calculatorFactory.create(employee);
+    return calculator.calculateSalaryInCents(employee);
   }
 }
