@@ -66,6 +66,60 @@ public class EmployeeSalaryCalculatorTest {
     assertEquals(expectedSalaryInCents, salaryInCents);
   }
 
+  @Test
+  public void testCalculatorShouldUseCorrectDiscountForDBAEmployeesBelowThreshold() {
+    EmployeeSalaryCalculator calculator = new EmployeeSalaryCalculator();
+
+    int salaryInCentsBelowThreshold = 199999;
+    Employee employeeWithSalaryBelowThreshold = createEmployeeWithDefaults(
+      salaryInCentsBelowThreshold,
+      EmployeePosition.DBA
+    );
+
+    int salaryInCents = calculator.calculateSalaryInCents(employeeWithSalaryBelowThreshold);
+
+    double expectedDiscount = 0.15;
+    int expectedSalaryInCents = (int) Math.floor(salaryInCentsBelowThreshold * (1 - expectedDiscount));
+
+    assertEquals(expectedSalaryInCents, salaryInCents);
+  }
+
+  @Test
+  public void testCalculatorShouldUseCorrectDiscountForDBAEmployeesAtThreshold() {
+    EmployeeSalaryCalculator calculator = new EmployeeSalaryCalculator();
+
+    int salaryInCentsBelowThreshold = 200000;
+    Employee employeeWithSalaryBelowThreshold = createEmployeeWithDefaults(
+      salaryInCentsBelowThreshold,
+      EmployeePosition.DBA
+    );
+
+    int salaryInCents = calculator.calculateSalaryInCents(employeeWithSalaryBelowThreshold);
+
+    double expectedDiscount = 0.25;
+    int expectedSalaryInCents = (int) Math.floor(salaryInCentsBelowThreshold * (1 - expectedDiscount));
+
+    assertEquals(expectedSalaryInCents, salaryInCents);
+  }
+
+  @Test
+  public void testCalculatorShouldUseCorrectDiscountForDBAEmployeesAboveThreshold() {
+    EmployeeSalaryCalculator calculator = new EmployeeSalaryCalculator();
+
+    int salaryInCentsBelowThreshold = 200001;
+    Employee employeeWithSalaryBelowThreshold = createEmployeeWithDefaults(
+      salaryInCentsBelowThreshold,
+      EmployeePosition.DBA
+    );
+
+    int salaryInCents = calculator.calculateSalaryInCents(employeeWithSalaryBelowThreshold);
+
+    double expectedDiscount = 0.25;
+    int expectedSalaryInCents = (int) Math.floor(salaryInCentsBelowThreshold * (1 - expectedDiscount));
+
+    assertEquals(expectedSalaryInCents, salaryInCents);
+  }
+
   private Employee createEmployeeWithDefaults(int baseSalaryInCents, EmployeePosition position) {
     return new Employee(employeeName, employeeEmail, baseSalaryInCents, position);
   }
