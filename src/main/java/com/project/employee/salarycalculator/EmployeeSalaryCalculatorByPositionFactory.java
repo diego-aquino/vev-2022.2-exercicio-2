@@ -15,6 +15,8 @@ public class EmployeeSalaryCalculatorByPositionFactory {
         return new DBAEmployeeSalaryCalculator();
       case TESTER:
         return new TesterEmployeeSalaryCalculator();
+      case MANAGER:
+        return new ManagerEmployeeSalaryCalculator();
       default:
         throw new MissingEmployeeSalaryCalculatorByPosition(position);
     }
