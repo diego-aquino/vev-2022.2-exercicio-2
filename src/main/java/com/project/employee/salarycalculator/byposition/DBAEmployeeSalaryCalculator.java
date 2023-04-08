@@ -1,20 +1,19 @@
 package com.project.employee.salarycalculator.byposition;
 
-import com.project.employee.Employee;
-
 public class DBAEmployeeSalaryCalculator extends EmployeeSalaryCalculatorByPosition {
 
-  private static final int SALARY_THRESHOLD_IN_CENTS = 200000;
-  private static final double SALARY_DISCOUNT_BELOW_THRESHOLD = 0.15;
-  private static final double SALARY_DISCOUNT_AT_OR_ABOVE_THRESHOLD = 0.25;
+  @Override
+  protected int getSalaryThresholdInCents() {
+    return 200000;
+  }
 
-  public int calculateSalaryInCents(Employee employee) {
-    int baseSalaryInCents = employee.getBaseSalaryInCents();
+  @Override
+  protected double getSalaryDiscountBelowThreshold() {
+    return 0.15;
+  }
 
-    if (baseSalaryInCents < SALARY_THRESHOLD_IN_CENTS) {
-      return this.applyDiscountToSalary(baseSalaryInCents, SALARY_DISCOUNT_BELOW_THRESHOLD);
-    } else {
-      return this.applyDiscountToSalary(baseSalaryInCents, SALARY_DISCOUNT_AT_OR_ABOVE_THRESHOLD);
-    }
+  @Override
+  protected double getSalaryDiscountAtOrAboveThreshold() {
+    return 0.25;
   }
 }

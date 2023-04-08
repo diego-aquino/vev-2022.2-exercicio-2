@@ -1,4 +1,4 @@
-package com.project.employee.salarycalculator;
+package com.project.employee.salarycalculator.byposition;
 
 import com.project.employee.EmployeePosition;
 

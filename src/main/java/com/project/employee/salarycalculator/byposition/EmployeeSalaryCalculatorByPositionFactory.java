@@ -2,7 +2,6 @@ package com.project.employee.salarycalculator.byposition;
 
 import com.project.employee.Employee;
 import com.project.employee.EmployeePosition;
-import com.project.employee.salarycalculator.MissingEmployeeSalaryCalculatorByPosition;
 
 public class EmployeeSalaryCalculatorByPositionFactory {
 
