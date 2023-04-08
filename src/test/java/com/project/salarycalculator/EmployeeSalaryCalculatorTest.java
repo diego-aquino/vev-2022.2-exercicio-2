@@ -27,6 +27,42 @@ public class EmployeeSalaryCalculatorTest {
     assertEquals(expectedSalaryInCents, salaryInCents);
   }
 
+  @Test
+  public void testCalculatorShouldUseCorrectDiscountForDeveloperEmployeesAtThreshold() {
+    EmployeeSalaryCalculator calculator = new EmployeeSalaryCalculator();
+
+    int salaryInCentsAtThreshold = 300000;
+    Employee employeeWithSalaryBelowThreshold = createEmployeeWithDefaults(
+      salaryInCentsAtThreshold,
+      EmployeePosition.DEVELOPER
+    );
+
+    int salaryInCents = calculator.calculateSalaryInCents(employeeWithSalaryBelowThreshold);
+
+    double expectedDiscount = 0.2;
+    int expectedSalaryInCents = (int) Math.floor(salaryInCentsAtThreshold * (1 - expectedDiscount));
+
+    assertEquals(expectedSalaryInCents, salaryInCents);
+  }
+
+  @Test
+  public void testCalculatorShouldUseCorrectDiscountForDeveloperEmployeesAboveThreshold() {
+    EmployeeSalaryCalculator calculator = new EmployeeSalaryCalculator();
+
+    int salaryInCentsAtThreshold = 300001;
+    Employee employeeWithSalaryBelowThreshold = createEmployeeWithDefaults(
+      salaryInCentsAtThreshold,
+      EmployeePosition.DEVELOPER
+    );
+
+    int salaryInCents = calculator.calculateSalaryInCents(employeeWithSalaryBelowThreshold);
+
+    double expectedDiscount = 0.2;
+    int expectedSalaryInCents = (int) Math.floor(salaryInCentsAtThreshold * (1 - expectedDiscount));
+
+    assertEquals(expectedSalaryInCents, salaryInCents);
+  }
+
   private Employee createEmployeeWithDefaults(int baseSalaryInCents, EmployeePosition position) {
     return new Employee(employeeName, employeeEmail, baseSalaryInCents, position);
   }
