@@ -1,4 +1,6 @@
-package com.project.salarycalculator;
+package com.project.employee.salarycalculator;
+
+import com.project.employee.Employee;
 
 public class DeveloperEmployeeSalaryCalculator extends EmployeeSalaryCalculatorByPosition {
 

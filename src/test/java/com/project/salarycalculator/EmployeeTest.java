@@ -2,6 +2,8 @@ package com.project.salarycalculator;
 
 import static org.junit.Assert.assertEquals;
 
+import com.project.employee.Employee;
+import com.project.employee.EmployeePosition;
 import org.junit.Test;
 
 public class EmployeeTest {

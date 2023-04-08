@@ -1,4 +1,4 @@
-package com.project.salarycalculator;
+package com.project.employee;
 
 public enum EmployeePosition {
   DEVELOPER("DESENVOLVEDOR"),
