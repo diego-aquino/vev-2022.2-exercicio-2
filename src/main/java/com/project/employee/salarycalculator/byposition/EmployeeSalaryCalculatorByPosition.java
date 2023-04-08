@@ -1,10 +1,10 @@
-package com.project.employee.salarycalculator;
+package com.project.employee.salarycalculator.byposition;
 
 import com.project.employee.Employee;
 
 public abstract class EmployeeSalaryCalculatorByPosition {
 
-  abstract int calculateSalaryInCents(Employee employee);
+  public abstract int calculateSalaryInCents(Employee employee);
 
   protected int applyDiscountToSalary(int salaryInCents, double discount) {
     return (int) Math.floor(salaryInCents * (1 - discount));

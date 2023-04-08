@@ -1,8 +1,8 @@
-package com.project.employee.salarycalculator;
+package com.project.employee.salarycalculator.byposition;
 
 import com.project.employee.Employee;
 
-public class TesterEmployeeSalaryCalculator extends EmployeeSalaryCalculatorByPosition {
+public class DBAEmployeeSalaryCalculator extends EmployeeSalaryCalculatorByPosition {
 
   private static final int SALARY_THRESHOLD_IN_CENTS = 200000;
   private static final double SALARY_DISCOUNT_BELOW_THRESHOLD = 0.15;
