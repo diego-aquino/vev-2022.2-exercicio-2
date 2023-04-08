@@ -75,6 +75,27 @@ public class EmployeeSalaryCalculatorTest {
     testEmployeeSalary(EmployeePosition.TESTER, salaryInCentsAboveThreshold, expectedDiscount);
   }
 
+  @Test
+  public void testCalculatorShouldUseCorrectDiscountForManagerEmployeesBelowThreshold() {
+    int salaryInCentsBelowThreshold = 499999;
+    double expectedDiscount = 0.2;
+    testEmployeeSalary(EmployeePosition.MANAGER, salaryInCentsBelowThreshold, expectedDiscount);
+  }
+
+  @Test
+  public void testCalculatorShouldUseCorrectDiscountForManagerEmployeesAtThreshold() {
+    int salaryInCentsAtThreshold = 500000;
+    double expectedDiscount = 0.3;
+    testEmployeeSalary(EmployeePosition.MANAGER, salaryInCentsAtThreshold, expectedDiscount);
+  }
+
+  @Test
+  public void testCalculatorShouldUseCorrectDiscountForManagerEmployeesAboveThreshold() {
+    int salaryInCentsAboveThreshold = 500001;
+    double expectedDiscount = 0.3;
+    testEmployeeSalary(EmployeePosition.MANAGER, salaryInCentsAboveThreshold, expectedDiscount);
+  }
+
   private Employee createEmployeeWithDefaults(int baseSalaryInCents, EmployeePosition position) {
     return new Employee(employeeName, employeeEmail, baseSalaryInCents, position);
   }
