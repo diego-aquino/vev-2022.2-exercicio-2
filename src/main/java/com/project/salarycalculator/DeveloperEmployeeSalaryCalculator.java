@@ -1,6 +1,6 @@
 package com.project.salarycalculator;
 
-public class DeveloperEmployeeSalaryCalculator {
+public class DeveloperEmployeeSalaryCalculator extends EmployeeSalaryCalculatorByPosition {
 
   private static final int SALARY_THRESHOLD_IN_CENTS = 300000;
   private static final double SALARY_DISCOUNT_BELOW_THRESHOLD = 0.1;
@@ -10,9 +10,9 @@ public class DeveloperEmployeeSalaryCalculator {
     int baseSalaryInCents = employee.getBaseSalaryInCents();
 
     if (baseSalaryInCents < SALARY_THRESHOLD_IN_CENTS) {
-      return (int) Math.floor(baseSalaryInCents * (1 - SALARY_DISCOUNT_BELOW_THRESHOLD));
+      return this.applyDiscountToSalary(baseSalaryInCents, SALARY_DISCOUNT_BELOW_THRESHOLD);
     } else {
-      return (int) Math.floor(baseSalaryInCents * (1 - SALARY_DISCOUNT_AT_OR_ABOVE_THRESHOLD));
+      return this.applyDiscountToSalary(baseSalaryInCents, SALARY_DISCOUNT_AT_OR_ABOVE_THRESHOLD);
     }
   }
 }
