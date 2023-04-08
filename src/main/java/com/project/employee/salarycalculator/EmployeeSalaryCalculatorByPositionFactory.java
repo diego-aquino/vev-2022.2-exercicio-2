@@ -11,6 +11,8 @@ public class EmployeeSalaryCalculatorByPositionFactory {
     switch (position) {
       case DEVELOPER:
         return new DeveloperEmployeeSalaryCalculator();
+      case DBA:
+        return new DBAEmployeeSalaryCalculator();
       default:
         throw new MissingEmployeeSalaryCalculatorByPosition(position);
     }
