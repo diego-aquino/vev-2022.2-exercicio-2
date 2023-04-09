@@ -23,7 +23,7 @@ public class Employee {
   }
 
   public int getBaseSalaryInCents() {
-    return this.baseSalaryInCents;
+    return baseSalaryInCents;
   }
 
   public EmployeePosition getPosition() {

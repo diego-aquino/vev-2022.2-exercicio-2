@@ -12,17 +12,16 @@ public abstract class EmployeeSalaryCalculatorByPosition {
 
   public int calculateSalaryInCents(Employee employee) {
     int baseSalaryInCents = employee.getBaseSalaryInCents();
-    return applyDiscountBasedOnThreshold(baseSalaryInCents);
+    return calculateSalaryInCentsWithDiscounts(baseSalaryInCents);
   }
 
-  protected int applyDiscountBasedOnThreshold(int baseSalaryInCents) {
-    if (baseSalaryInCents < this.getSalaryThresholdInCents()) {
-      double discount = this.getSalaryDiscountBelowThreshold();
-      return this.applyDiscountToSalary(baseSalaryInCents, discount);
-    } else {
-      double discount = this.getSalaryDiscountAtOrAboveThreshold();
-      return this.applyDiscountToSalary(baseSalaryInCents, discount);
-    }
+  protected int calculateSalaryInCentsWithDiscounts(int baseSalaryInCents) {
+    int salaryThresholdInCents = getSalaryThresholdInCents();
+    double discount = baseSalaryInCents < salaryThresholdInCents
+      ? getSalaryDiscountBelowThreshold()
+      : getSalaryDiscountAtOrAboveThreshold();
+
+    return applyDiscountToSalary(baseSalaryInCents, discount);
   }
 
   protected int applyDiscountToSalary(int salaryInCents, double discount) {

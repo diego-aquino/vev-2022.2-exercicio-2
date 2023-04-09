@@ -6,10 +6,10 @@ import com.project.employee.salarycalculator.byposition.EmployeeSalaryCalculator
 
 public class EmployeeSalaryCalculator {
 
-  private EmployeeSalaryCalculatorByPositionFactory calculatorFactory = new EmployeeSalaryCalculatorByPositionFactory();
+  private EmployeeSalaryCalculatorByPositionFactory calculatorByPositionFactory = new EmployeeSalaryCalculatorByPositionFactory();
 
   public int calculateSalaryInCents(Employee employee) {
-    EmployeeSalaryCalculatorByPosition calculator = calculatorFactory.create(employee);
-    return calculator.calculateSalaryInCents(employee);
+    EmployeeSalaryCalculatorByPosition calculatorByPosition = calculatorByPositionFactory.create(employee);
+    return calculatorByPosition.calculateSalaryInCents(employee);
   }
 }
