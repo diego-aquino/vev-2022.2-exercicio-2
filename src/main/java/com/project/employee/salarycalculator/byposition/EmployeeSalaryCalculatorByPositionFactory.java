@@ -1,13 +1,10 @@
 package com.project.employee.salarycalculator.byposition;
 
-import com.project.employee.Employee;
 import com.project.employee.EmployeePosition;
 
 public class EmployeeSalaryCalculatorByPositionFactory {
 
-  public EmployeeSalaryCalculatorByPosition create(Employee employee) {
-    EmployeePosition position = employee.getPosition();
-
+  public EmployeeSalaryCalculatorByPosition create(EmployeePosition position) {
     switch (position) {
       case DEVELOPER:
         return new DeveloperEmployeeSalaryCalculator();
