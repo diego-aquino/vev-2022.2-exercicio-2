@@ -13,91 +13,87 @@ public class EmployeeSalaryCalculatorTest {
   private String employeeEmail = "email@email.com";
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForDeveloperEmployeesBelowThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForDevelopersBelowThreshold() {
     int salaryInCentsBelowThreshold = 299999;
     double expectedDiscount = 0.1;
     testEmployeeSalary(EmployeePosition.DEVELOPER, salaryInCentsBelowThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForDeveloperEmployeesAtThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForDevelopersAtThreshold() {
     int salaryInCentsAtThreshold = 300000;
     double expectedDiscount = 0.2;
     testEmployeeSalary(EmployeePosition.DEVELOPER, salaryInCentsAtThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForDeveloperEmployeesAboveThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForDevelopersAboveThreshold() {
     int salaryInCentsAboveThreshold = 300001;
     double expectedDiscount = 0.2;
     testEmployeeSalary(EmployeePosition.DEVELOPER, salaryInCentsAboveThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForDBAEmployeesBelowThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForDBAsBelowThreshold() {
     int salaryInCentsBelowThreshold = 199999;
     double expectedDiscount = 0.15;
     testEmployeeSalary(EmployeePosition.DBA, salaryInCentsBelowThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForDBAEmployeesAtThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForDBAsAtThreshold() {
     int salaryInCentsAtThreshold = 200000;
     double expectedDiscount = 0.25;
     testEmployeeSalary(EmployeePosition.DBA, salaryInCentsAtThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForDBAEmployeesAboveThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForDBAsAboveThreshold() {
     int salaryInCentsAboveThreshold = 200001;
     double expectedDiscount = 0.25;
     testEmployeeSalary(EmployeePosition.DBA, salaryInCentsAboveThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForTesterEmployeesBelowThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForTestersBelowThreshold() {
     int salaryInCentsBelowThreshold = 199999;
     double expectedDiscount = 0.15;
     testEmployeeSalary(EmployeePosition.TESTER, salaryInCentsBelowThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForTesterEmployeesAtThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForTestersAtThreshold() {
     int salaryInCentsAtThreshold = 200000;
     double expectedDiscount = 0.25;
     testEmployeeSalary(EmployeePosition.TESTER, salaryInCentsAtThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForTesterEmployeesAboveThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForTestersAboveThreshold() {
     int salaryInCentsAboveThreshold = 200001;
     double expectedDiscount = 0.25;
     testEmployeeSalary(EmployeePosition.TESTER, salaryInCentsAboveThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForManagerEmployeesBelowThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForManagersBelowThreshold() {
     int salaryInCentsBelowThreshold = 499999;
     double expectedDiscount = 0.2;
     testEmployeeSalary(EmployeePosition.MANAGER, salaryInCentsBelowThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForManagerEmployeesAtThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForManagersAtThreshold() {
     int salaryInCentsAtThreshold = 500000;
     double expectedDiscount = 0.3;
     testEmployeeSalary(EmployeePosition.MANAGER, salaryInCentsAtThreshold, expectedDiscount);
   }
 
   @Test
-  public void testCalculatorShouldUseCorrectDiscountForManagerEmployeesAboveThreshold() {
+  public void testCalculatorShouldUseCorrectDiscountForManagersAboveThreshold() {
     int salaryInCentsAboveThreshold = 500001;
     double expectedDiscount = 0.3;
     testEmployeeSalary(EmployeePosition.MANAGER, salaryInCentsAboveThreshold, expectedDiscount);
-  }
-
-  private Employee createEmployeeWithDefaults(int baseSalaryInCents, EmployeePosition position) {
-    return new Employee(employeeName, employeeEmail, baseSalaryInCents, position);
   }
 
   private void testEmployeeSalary(EmployeePosition position, int baseSalaryInCents, double expectedDiscount) {
@@ -108,5 +104,9 @@ public class EmployeeSalaryCalculatorTest {
     int salaryInCents = calculator.calculateSalaryInCents(employee);
     int expectedSalaryInCents = (int) Math.floor(baseSalaryInCents * (1 - expectedDiscount));
     assertEquals(expectedSalaryInCents, salaryInCents);
+  }
+
+  private Employee createEmployeeWithDefaults(int baseSalaryInCents, EmployeePosition position) {
+    return new Employee(employeeName, employeeEmail, baseSalaryInCents, position);
   }
 }
