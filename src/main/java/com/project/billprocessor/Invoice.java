@@ -32,4 +32,8 @@ public class Invoice {
   public String getClientName() {
     return clientName;
   }
+
+  public boolean isPaid() {
+    return false;
+  }
 }
