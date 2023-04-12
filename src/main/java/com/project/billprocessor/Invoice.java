@@ -2,19 +2,19 @@ package com.project.billprocessor;
 
 import java.util.Date;
 
-public class Bill {
-  private Date dueDate;
+public class Invoice {
+  private Date date;
   private long totalAmount;
   private String clientName;
 
-  public Bill(Date date, long totalAmount, String clientName) {
-    this.dueDate = date;
+  public Invoice(Date date, long totalAmount, String clientName) {
+    this.date = date;
     this.totalAmount = totalAmount;
     this.clientName = clientName;
   }
 
-  public Date getDueDate() {
-    return dueDate;
+  public Date getDate() {
+    return date;
   }
 
   public long getTotalAmount() {
