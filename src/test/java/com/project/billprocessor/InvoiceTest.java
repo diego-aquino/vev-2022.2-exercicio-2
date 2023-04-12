@@ -55,4 +55,17 @@ public class InvoiceTest {
 
     assertTrue(invoice.isPaid());
   }
+
+  @Test
+  public void invoiceIsNotMarkedAsPaidWhenMissingAmount() {
+    Invoice invoice = new Invoice(new Date(), 1, "");
+
+    Bill billOne = new Bill("", new Date(), 0);
+    List<Bill> billList = new ArrayList<>();
+    billList.add(billOne);
+
+    invoice.addBills(billList);
+
+    assertFalse(invoice.isPaid());
+  }
 }
