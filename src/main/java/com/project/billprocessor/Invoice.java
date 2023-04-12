@@ -54,8 +54,9 @@ public class Invoice {
 
     for (Bill bill : billList) {
       long paidAmount = bill.getPaidAmount();
+      Date date = bill.getDate();
       billListTotalAmount += paidAmount;
-      Payment payment = new Payment(paidAmount, new Date(), PaymentDest.BILL);
+      Payment payment = new Payment(paidAmount, date, PaymentDest.BILL);
       this.paymentList.add(payment);
     }
 
