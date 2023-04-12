@@ -1,9 +1,10 @@
 package com.project.billprocessor;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Date;
 
 import org.junit.Test;
-import com.project.billprocessor.Bill;
 
 public class BillTest {
   @Test
