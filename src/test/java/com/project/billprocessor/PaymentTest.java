@@ -9,20 +9,20 @@ import org.junit.Test;
 public class PaymentTest {
 
   @Test
-  public void testPaymentShouldHavePaidAmountDatePaymentKind() {
+  public void testPaymentShouldHavePaidAmountDatePaymentDest() {
     long paidAmount = 1500 * 100;
     Date date = new Date();
     String paymentKind = "BOLETO";
-    Payment payment = new Payment(paidAmount, date, paymentKind);
+    Payment payment = new Payment(paidAmount, date, PaymentDest.BILL);
 
     assertEquals(paidAmount, payment.getPaidAmount());
     assertEquals(date, payment.getDate());
-    assertEquals(paymentKind, payment.getPaymentKind());
+    assertEquals(PaymentDest.BILL, payment.getPaymentDest());
   }
 
   @Test
   (expected = IllegalArgumentException.class)
   public void testPaymentShouldNotHaveNegativeAmount() {
-    new Payment(-1, new Date(), "BOLETO");
+    new Payment(-1, new Date(), PaymentDest.BILL);
   }
 }
