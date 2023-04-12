@@ -10,10 +10,7 @@ public class Invoice {
   private String clientName;
   private List<Bill> billList;
   private ArrayList<Payment> paymentList;
-
-  public ArrayList<Payment> getPaymentList() {
-    return paymentList;
-  }
+  private boolean isPaid;
 
   public Invoice(Date date, long totalAmount, String clientName) {
     this.date = date;
@@ -21,6 +18,11 @@ public class Invoice {
     this.clientName = clientName;
     this.billList = new ArrayList<Bill>();
     this.paymentList = new ArrayList<Payment>();
+    this.isPaid = false;
+  }
+
+  public ArrayList<Payment> getPaymentList() {
+    return paymentList;
   }
 
   public List<Bill> getBillList() {
@@ -40,10 +42,11 @@ public class Invoice {
   }
 
   public boolean isPaid() {
-    return false;
+    return this.isPaid;
   }
 
   public void addBills(List<Bill> billList) {
     this.billList = billList;
+    this.isPaid = true;
   }
 }
