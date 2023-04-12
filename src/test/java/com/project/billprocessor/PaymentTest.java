@@ -19,4 +19,10 @@ public class PaymentTest {
     assertEquals(date, payment.getDate());
     assertEquals(paymentKind, payment.getPaymentKind());
   }
+
+  @Test
+  (expected = IllegalArgumentException.class)
+  public void testPaymentShouldNotHaveNegativeAmount() {
+    new Payment(-1, new Date(), "BOLETO");
+  }
 }
