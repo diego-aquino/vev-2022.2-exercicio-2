@@ -68,4 +68,21 @@ public class InvoiceTest {
 
     assertFalse(invoice.isPaid());
   }
+
+  @Test
+  public void invoiceGeneratesPaymentList() {
+    Invoice invoice = new Invoice(new Date(), 0, "");
+    Bill billOne = new Bill("", new Date(), 0);
+    Bill billTwo = new Bill("", new Date(), 0);
+    Bill billThree = new Bill("", new Date(), 0);
+    List<Bill> billList = new ArrayList<>();
+
+    billList.add(billOne);
+    billList.add(billTwo);
+    billList.add(billThree);
+
+    invoice.addBills(billList);
+
+    assertEquals(billList.size(), invoice.getPaymentList().size());
+  }
 }
