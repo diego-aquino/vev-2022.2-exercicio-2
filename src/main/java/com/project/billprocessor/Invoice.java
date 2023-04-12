@@ -13,6 +13,9 @@ public class Invoice {
   private boolean isPaid;
 
   public Invoice(Date date, long totalAmount, String clientName) {
+    if (totalAmount < 0) {
+      throw new IllegalArgumentException("Total amount {" + totalAmount + "} cannot be negative");
+    }
     this.date = date;
     this.totalAmount = totalAmount;
     this.clientName = clientName;
