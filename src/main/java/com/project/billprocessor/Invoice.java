@@ -50,7 +50,10 @@ public class Invoice {
     long billListTotalAmount = 0;
 
     for (Bill bill : billList) {
-      billListTotalAmount += bill.getPaidAmount();
+      long paidAmount = bill.getPaidAmount();
+      billListTotalAmount += paidAmount;
+      Payment payment = new Payment(paidAmount, new Date(), "BOLETO");
+      this.paymentList.add(payment);
     }
 
     if (billListTotalAmount >= this.totalAmount) {
