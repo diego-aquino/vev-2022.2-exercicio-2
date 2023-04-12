@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class BillTest {
   @Test
-  public void newBillHasCodeDatePaidAmount() {
+  public void testBillShouldHaveCodeDatePaidAmount() {
     String code = "A1";
     Date date = new Date();
     long paidAmount = 500 * 100;

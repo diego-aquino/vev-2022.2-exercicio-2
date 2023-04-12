@@ -9,7 +9,7 @@ import org.junit.Test;
 public class PaymentTest {
 
   @Test
-  public void newPaymentHasPaidAmountDatePaymentKind() {
+  public void testPaymentShouldHavePaidAmountDatePaymentKind() {
     long paidAmount = 1500 * 100;
     Date date = new Date();
     String paymentKind = "BOLETO";

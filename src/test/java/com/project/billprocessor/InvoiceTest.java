@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class InvoiceTest {
   @Test
-  public void newInvoiceHasDateTotalAmountClientNameEmptyBillList() {
+  public void testInvoiceShouldHaveDateTotalAmountClientNameEmptyBillList() {
     Date date = new Date();
     long amountInCents = 1500 * 100;
     String clientName = "Frank";
@@ -27,7 +27,7 @@ public class InvoiceTest {
   }
 
   @Test
-  public void invoiceAcceptsBillsList() {
+  public void testInvoiceShouldAcceptBillList() {
     Invoice invoice = new Invoice(new Date(), 0, "");
     Bill billOne = new Bill("", new Date(), 0);
     Bill billTwo = new Bill("", new Date(), 0);
@@ -44,7 +44,7 @@ public class InvoiceTest {
   }
 
   @Test
-  public void invoiceIsMarkedAsPaid() {
+  public void testInvoiceShouldMarkAsPaid() {
     Invoice invoice = new Invoice(new Date(), 0, "");
 
     Bill billOne = new Bill("", new Date(), 0);
@@ -57,7 +57,7 @@ public class InvoiceTest {
   }
 
   @Test
-  public void invoiceIsNotMarkedAsPaidWhenMissingAmount() {
+  public void testInvoiceShouldNotMarkAsPaidWhenMissingAmount() {
     Invoice invoice = new Invoice(new Date(), 1, "");
 
     Bill billOne = new Bill("", new Date(), 0);
@@ -70,7 +70,7 @@ public class InvoiceTest {
   }
 
   @Test
-  public void invoiceGeneratesPaymentList() {
+  public void testInvoiceShouldGeneratePaymentList() {
     Invoice invoice = new Invoice(new Date(), 0, "");
     Bill billOne = new Bill("", new Date(), 0);
     Bill billTwo = new Bill("", new Date(), 0);
