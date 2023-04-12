@@ -27,6 +27,12 @@ public class InvoiceTest {
   }
 
   @Test
+  (expected = IllegalArgumentException.class)
+  public void testInvoiceShouldNotAcceptNegativeTotalAmount() {
+    new Invoice(new Date(), -1, "");
+  }
+
+  @Test
   public void testInvoiceShouldAcceptBillList() {
     Invoice invoice = new Invoice(new Date(), 0, "");
     Bill billOne = new Bill("", new Date(), 0);
