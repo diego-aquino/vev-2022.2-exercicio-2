@@ -9,6 +9,9 @@ public class Bill {
   private long paidAmount;
 
   public Bill(String code, Date date, long paidAmount) {
+    if (paidAmount < 0) {
+      throw new IllegalArgumentException("Paid amount {" + paidAmount + "} cannot be negative");
+    }
     this.code = code;
     this.date = date;
     this.paidAmount = paidAmount;
