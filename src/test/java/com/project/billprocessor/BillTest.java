@@ -18,4 +18,10 @@ public class BillTest {
     assertEquals(date, bill.getDate());
     assertEquals(paidAmount, bill.getPaidAmount());
   }
+
+  @Test
+  (expected = IllegalArgumentException.class)
+  public void testBillShouldNotHaveNegativePaidAmount() {
+    new Bill("", new Date(), -1);
+  }
 }
