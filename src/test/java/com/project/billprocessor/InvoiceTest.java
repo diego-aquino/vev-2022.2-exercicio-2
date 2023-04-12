@@ -78,9 +78,9 @@ public class InvoiceTest {
   @Test
   public void testInvoiceShouldGeneratePaymentList() {
     Invoice invoice = new Invoice(new Date(), 0, "");
-    Bill billOne = new Bill("", new Date(), 0);
-    Bill billTwo = new Bill("", new Date(), 0);
-    Bill billThree = new Bill("", new Date(), 0);
+    Bill billOne = new Bill("", new Date(1), 1);
+    Bill billTwo = new Bill("", new Date(2), 2);
+    Bill billThree = new Bill("", new Date(3), 3);
     List<Bill> billList = new ArrayList<>();
 
     billList.add(billOne);
@@ -90,5 +90,11 @@ public class InvoiceTest {
     invoice.addBills(billList);
 
     assertEquals(billList.size(), invoice.getPaymentList().size());
+    for (int i = 0; i < invoice.getPaymentList().size(); i++) {
+      assertEquals(billList.get(i).getPaidAmount(),
+                   invoice.getPaymentList().get(i).getPaidAmount());
+      assertEquals(billList.get(i).getDate(),
+                   invoice.getPaymentList().get(i).getDate());
+    }
   }
 }
