@@ -36,4 +36,8 @@ public class Invoice {
   public boolean isPaid() {
     return false;
   }
+
+  public void addBills(List<Bill> billList) {
+    this.billList = billList;
+  }
 }
