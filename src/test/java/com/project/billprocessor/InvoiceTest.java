@@ -1,6 +1,7 @@
 package com.project.billprocessor;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.util.Date;
 
@@ -18,5 +19,6 @@ public class InvoiceTest {
     assertEquals(amountInCents, invoice.getTotalAmount());
     assertEquals(clientName, invoice.getClientName());
     assertEquals(0, invoice.getBillList().size());
+    assertFalse(invoice.isPaid());
   }
 }
