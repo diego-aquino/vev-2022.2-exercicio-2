@@ -8,10 +8,10 @@ public class Employee {
   private EmployeePosition position;
 
   public Employee(String name, String email, int baseSalaryInCents, EmployeePosition position) {
-    this.name = name;
-    this.email = email;
-    this.baseSalaryInCents = baseSalaryInCents;
-    this.position = position;
+    this.name = ensureNonNull(name, "name");
+    this.email = ensureNonNull(email, "email");
+    this.baseSalaryInCents = ensureNonNegative(baseSalaryInCents, "baseSalaryInCents");
+    this.position = ensureNonNull(position, "position");
   }
 
   public String getName() {
@@ -28,5 +28,19 @@ public class Employee {
 
   public EmployeePosition getPosition() {
     return position;
+  }
+
+  private <Value> Value ensureNonNull(Value value, String valueName) {
+    if (value == null) {
+      throw new IllegalArgumentException("Value " + valueName + " cannot be null");
+    }
+    return value;
+  }
+
+  private int ensureNonNegative(int value, String valueName) {
+    if (value < 0) {
+      throw new IllegalArgumentException("Value " + valueName + " cannot be negative");
+    }
+    return value;
   }
 }
