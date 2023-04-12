@@ -22,6 +22,7 @@ public class InvoiceTest {
     assertEquals(clientName, invoice.getClientName());
     assertEquals(0, invoice.getBillList().size());
     assertFalse(invoice.isPaid());
+    assertEquals(0, invoice.getPaymentList().size());
   }
 
   @Test
