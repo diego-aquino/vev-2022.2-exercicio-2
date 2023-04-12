@@ -8,6 +8,9 @@ public class Payment {
   private String paymentKind;
 
   public Payment(long paidAmount, Date date, String paymentKind) {
+    if (paidAmount < 0) {
+      throw new IllegalArgumentException("Paid amount " + paidAmount + " cannot be negative");
+    }
     this.paidAmount = paidAmount;
     this.date = date;
     this.paymentKind = paymentKind;
