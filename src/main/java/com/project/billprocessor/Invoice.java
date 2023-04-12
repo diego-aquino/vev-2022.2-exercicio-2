@@ -47,6 +47,14 @@ public class Invoice {
 
   public void addBills(List<Bill> billList) {
     this.billList = billList;
-    this.isPaid = true;
+    long billListTotalAmount = 0;
+
+    for (Bill bill : billList) {
+      billListTotalAmount += bill.getPaidAmount();
+    }
+
+    if (billListTotalAmount >= this.totalAmount) {
+      this.isPaid = true;
+    }
   }
 }
