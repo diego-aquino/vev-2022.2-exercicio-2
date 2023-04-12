@@ -2,6 +2,7 @@ package com.project.billprocessor;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,5 +41,18 @@ public class InvoiceTest {
     invoice.addBills(billList);
 
     assertEquals(billList, invoice.getBillList());
+  }
+
+  @Test
+  public void invoiceIsMarkedAsPaid() {
+    Invoice invoice = new Invoice(new Date(), 0, "");
+
+    Bill billOne = new Bill("", new Date(), 0);
+    List<Bill> billList = new ArrayList<>();
+    billList.add(billOne);
+
+    invoice.addBills(billList);
+
+    assertTrue(invoice.isPaid());
   }
 }
