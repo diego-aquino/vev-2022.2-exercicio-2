@@ -1,8 +1,7 @@
-package com.project.salarycalculator;
+package com.project.employee;
 
 import static org.junit.Assert.assertEquals;
 
-import com.project.employee.EmployeePosition;
 import org.junit.Test;
 
 public class EmployeePositionTest {

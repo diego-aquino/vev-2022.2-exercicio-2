@@ -1,10 +1,9 @@
-package com.project.salarycalculator;
+package com.project.employee.salarycalculator;
 
 import static org.junit.Assert.assertEquals;
 
 import com.project.employee.Employee;
 import com.project.employee.EmployeePosition;
-import com.project.employee.salarycalculator.EmployeeSalaryCalculator;
 import org.junit.Test;
 
 public class EmployeeSalaryCalculatorTest {
